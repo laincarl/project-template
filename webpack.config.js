@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const isEnvProduction = process.env.NODE_ENV === 'production';
 const appSrc = path.resolve(__dirname, 'src');
@@ -22,6 +23,14 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         include: appSrc,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.less$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'less-loader',
+        ],
       },
     ],
   },
@@ -55,5 +64,6 @@ module.exports = {
       },
     ),
     new WebpackBar(),
-  ],
+    !isEnvProduction && new ForkTsCheckerWebpackPlugin(),
+  ].filter(Boolean),
 };
