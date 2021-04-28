@@ -2,8 +2,13 @@
 
 - [x] typescript
 - [x] eslint
-- [ ] husky
-- [ ] commitlint
-- [ ] conventional-changelog
+- [x] husky
+- [x] commitlint
+- [x] conventional-changelog
 - [x] webpack5
-- [ ] less
+- [x] less
+- [x] postcss
+- [ ] jest
+- [ ] mock
+- [ ] locale
+- [ ] github action
