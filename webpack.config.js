@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 const isEnvProduction = process.env.NODE_ENV === 'production';
 const appSrc = path.resolve(__dirname, 'src');
@@ -28,6 +29,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    stats: 'errors-warnings',
   },
   plugins: [
     new HtmlWebpackPlugin(
@@ -52,5 +54,6 @@ module.exports = {
           : undefined),
       },
     ),
+    new WebpackBar(),
   ],
 };
