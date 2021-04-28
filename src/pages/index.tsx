@@ -1,3 +1,5 @@
+import './index.less';
+
 const PageIndex = () => (
   <div>
     PageIndex
