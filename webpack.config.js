@@ -13,7 +13,7 @@ module.exports = {
   },
   devtool: isEnvProduction ? false : 'cheap-module-source-map',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   module: {
     rules: [
@@ -21,8 +21,8 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         include: appSrc,
         loader: 'babel-loader',
-      }
-    ]
+      },
+    ],
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
@@ -31,13 +31,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(
-      Object.assign(
-        {},
-        {
-          inject: true,
-          template: appHtml,
-        },
-        isEnvProduction
+      {
+        inject: true,
+        template: appHtml,
+        ...(isEnvProduction
           ? {
             minify: {
               removeComments: true,
@@ -52,8 +49,8 @@ module.exports = {
               minifyURLs: true,
             },
           }
-          : undefined
-      )
+          : undefined),
+      },
     ),
-  ]
+  ],
 };
