@@ -1,7 +1,7 @@
 import './index.less';
 
 const PageIndex = () => (
-  <div>
+  <div className="app-container">
     PageIndex
   </div>
 );
