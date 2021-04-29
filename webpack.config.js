@@ -33,6 +33,14 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
+      {
         test: /\.less$/i,
         use: [
           'style-loader',
@@ -41,11 +49,20 @@ module.exports = {
           'less-loader',
         ],
       },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        type: 'asset/resource',
+        generator: {
+          // [ext]前面自带"."
+          filename: 'assets/[hash:8].[name][ext]',
+        },
+      },
     ],
   },
   devServer: {
     hot: true,
     contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true,
     compress: true,
     port: 9000,
     stats: 'errors-warnings',
