@@ -5,6 +5,7 @@ import {
 import './index.less';
 
 const Worker = lazy(() => import('./worker'));
+const Zustand = lazy(() => import('./zustand'));
 
 const PageIndex = () => (
   <Router>
@@ -12,11 +13,15 @@ const PageIndex = () => (
       <ul>
         <li><Link to="/">首页</Link></li>
         <li><Link to="/worker">worker</Link></li>
+        <li><Link to="/zustand">zustand</Link></li>
       </ul>
       <Suspense fallback="loading...">
         <Switch>
           <Route path="/worker">
             <Worker />
+          </Route>
+          <Route path="/zustand">
+            <Zustand />
           </Route>
         </Switch>
       </Suspense>
