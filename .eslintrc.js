@@ -21,7 +21,7 @@ module.exports = {
       version: 'detect',
     },
   },
-  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks'],
+  plugins: ['import', 'jsx-a11y', 'react', 'react-hooks', 'formatjs'],
   overrides: [
     {
       files: ['**/*.ts?(x)'],
@@ -87,5 +87,6 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'formatjs/no-offset': 'error',
   },
 };
