@@ -5,12 +5,12 @@ const translate = require('@ori/google-translate-api');
 const baseLocale = 'zh-CN';
 const supportLocales = ['zh-TW', 'en']
 
-async function translateFile(source, locale) {
+async function translateFile(source, fromLocale, locale) {
   const result = {};
   for (const item of Object.entries(source)) {
     const [key, value] = item;
     const { defaultMessage, ...other } = source[key];
-    const res = await translate(defaultMessage, { to: locale });
+    const res = await translate(defaultMessage, { from: fromLocale, to: locale });
     Object.assign(result, {
       [key]: {
         defaultMessage: res.text,
@@ -24,5 +24,5 @@ async function translateFile(source, locale) {
 const source = require(`../lang/${baseLocale}.json`);
 
 supportLocales.forEach(locale => {
-  translateFile(source, locale);
+  translateFile(source, baseLocale, locale);
 })

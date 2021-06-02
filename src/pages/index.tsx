@@ -32,7 +32,14 @@ const PageIndex = () => {
               />
             </Link>
           </li>
-          <li><Link to="/zustand">zustand</Link></li>
+          <li>
+            <Link to="/zustand">
+              {intl.formatMessage({
+                description: 'zustand',
+                defaultMessage: 'zustand',
+              })}
+            </Link>
+          </li>
         </ul>
         <Suspense fallback="loading...">
           <Switch>
