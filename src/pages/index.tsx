@@ -9,7 +9,7 @@ import './index.less';
 
 const Worker = lazy(() => import('./worker'));
 const Zustand = lazy(() => import('./zustand'));
-
+const WebAssembly = lazy(() => import('./webassembly'));
 const PageIndex = () => {
   const intl = useIntl();
   return (
@@ -40,6 +40,14 @@ const PageIndex = () => {
               })}
             </Link>
           </li>
+          <li>
+            <Link to="/webassembly">
+              {intl.formatMessage({
+                description: 'webassembly',
+                defaultMessage: 'webassembly',
+              })}
+            </Link>
+          </li>
         </ul>
         <Suspense fallback="loading...">
           <Switch>
@@ -48,6 +56,9 @@ const PageIndex = () => {
             </Route>
             <Route path="/zustand">
               <Zustand />
+            </Route>
+            <Route path="/webassembly">
+              <WebAssembly />
             </Route>
           </Switch>
         </Suspense>
