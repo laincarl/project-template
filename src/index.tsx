@@ -1,4 +1,10 @@
 import ReactDOM from 'react-dom';
+import EnsureLocaleLoaded from './components/EnsureLocaleLoaded';
 import App from './pages/index';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <EnsureLocaleLoaded>
+    <App />
+  </EnsureLocaleLoaded>,
+  document.getElementById('root'),
+);

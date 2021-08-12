@@ -20,6 +20,9 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   target: 'web',
+  experiments: {
+    asyncWebAssembly: true,
+  },
   module: {
     rules: [
       {
